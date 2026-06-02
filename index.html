@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CASETiFY - Metallic Love Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
     <style>
         body {
             margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
         }
         .visual {
             background-image: url(./images/visual_bg.jpg);
+            background-size: cover;
+            background-position: center;
         }
         .inner {
             height: 1000px;
@@ -18,77 +23,198 @@
             margin: 0 auto;
             background-color: #F9F6E5;
             position: relative;
-        }
-        .visual .title {
-            position:absolute;
-            top: 88px;
-            left: 150px;
-        }
-        .visual .title img {
-        width: 400px; 
-        height: auto;  
-}
-        .visual .pcup1 {
-            position: absolute;
-            bottom: 0;
-            right: -47px;
+            overflow: hidden; 
         }
 
-        .visual .cup1.text {
+        /* --- 기존 배치 유지 --- */
+        .visual .title {
             position: absolute;
-            top: -30px;
-            right: 220px;
+            top: 100px;
+            left: 100px;
+        }
+        .visual .title img {
+            width: 320px; 
+            height: auto;  
+        }
+        .visual .pcup1 {
+            position: absolute;
+            bottom: 60px;
+            right: 40px;
+            z-index: 2;
         }
         .visual .pcup2 {
             position: absolute;
-            bottom: 0;
-            right: 300px;
-        }
-        .visual .cup2.text {
-            position: absolute;
-            top: 150px;
-            right: 250px;
+            bottom: 60px;
+            right: 320px;
+            z-index: 3;
         }
         .visual .pcup2 img {
-        width: 300px; 
-        height: auto;  
-}
+            width: 260px; 
+            height: auto;   
+        }
         .visual .pspoon {
             position: absolute;
-            bottom: 0;
-            left: -150px;
+            bottom: 120px;
+            left: 100px;
+            z-index: 1;
+        }
+        
+        /* --- 텍스트 스타일 세팅 --- */
+        .visual .main-copy {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            text-align: right;
+        }
+        .visual .main-copy h2 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 15px 0;
+            color: #111;
+            letter-spacing: -1px;
+        }
+        .visual .main-copy p {
+            font-size: 18px;
+            font-weight: 400;
+            color: #555;
+            margin: 0;
+        }
+
+        /* 공통 설명 텍스트 스타일 클래스 (디자인 통일) */
+        .desc-text {
+            position: absolute;
+            width: 220px;
+        }
+        .desc-text h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            color: #111;
+            letter-spacing: 0.5px;
+        }
+        .desc-text p {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* 개별 텍스트 위치 세부 조정 */
+        .visual .charm-text {
+            top: 520px;
+            left: 30px;
+        }
+
+        /* [신규] 에어팟 텍스트 위치 (에어팟 왼쪽 위 공간에 배치) */
+        .visual .airpods-text {
+            bottom: 60px;
+            right: 580px;
+            text-align: right; /* 오른쪽 정렬로 여백 미학 강조 */
+        }
+
+        /* [신규] 리플케이스 텍스트 위치 (맨 우측 제품 아래/옆 공간에 배치) */
+        .visual .case-text {
+            bottom: 450px;
+            right: 40px;
+            text-align: right;
+        }
+
+        .visual .footer-notice {
+            position: absolute;
+            bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+        .visual .footer-notice p {
+            font-size: 12px;
+            font-weight: 400;
+            color: #888;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* 깜빡임 방지 */
+        .fade-in {
+            opacity: 0;
         }
     </style>
 </head>
 <body>
     <section class="visual">
         <div class="inner">
-            <div class="title fade-in">
-                <img src="./로고.png" alt="">
+            <div class="title fade-in" data-fade-order="1">
+                <img src="./로고.png" alt="CASETiFY">
             </div>
 
-            <div class="pcup1 fade-in">
-                <img src="./리플케이스.png" alt="" class="cup1 image">
+            <div class="main-copy fade-in" data-fade-order="1">
+                <h2>CASETIFY<br> ESSENTIALS ONLY <br> COLLECTION</h2>
+                <p>SOFT MINIMAL; SHINE BRIGHT</p>
             </div>
 
-            <div class="pcup2 fade-in">
+            <div class="charm-text desc-text fade-in" data-fade-order="2">
+                <h3>STERLING SILVER<br>HEART CHARM</h3>
+                <p>Beads, Handmade, Lovely, Waterproof, Handfree</p>
+            </div>
+
+            <div class="airpods-text desc-text fade-in" data-fade-order="3">
+                <h3>Custom<br>Earbuds Case</h3>
+                <p>Custom, Mirror, Earbuds, Glossy, Personal</p>
+            </div>
+
+            <div class="case-text desc-text fade-in" data-fade-order="3">
+                <h3>SIGNATURE<br>RIPPLE CASE</h3>
+                <p>Minimalism, Protection,<br> MagSafe, Silicone,<br> Functionality</p>
+            </div>
+
+            <div class="pspoon fade-in" data-fade-order="2">
+                <img src="./참.png" alt="">
+            </div>
+
+            <div class="pcup2 fade-in" data-fade-order="3">
                 <img src="./에어팟.png" alt="" class="cup2 image">
             </div>
 
-            <div class="pspoon fade-in">
-                <img src="./참.png" alt="">
+            <div class="pcup1 fade-in" data-fade-order="3">
+                <img src="./리플케이스.png" alt="" class="cup1 image">
+            </div>
+
+            <div class="footer-notice fade-in" data-fade-order="4">
+                <p>*Limited quantities available. Personalized items are final sale.*</p>
             </div>
         </div>
     </section>
+
     <script>
-        const fadeEls = document.querySelectorAll('.visual .fade-in');
-        gsap.from(fadeEls, {
-            duration: 2,
-            scale: .3,
-            ease: "none",
-            opacity: 0,
-            stagger: 0.7
+        const tl = gsap.timeline({
+            defaults: { ease: "power3.out", duration: 1.4 }
+        });
+
+        tl.to('[data-fade-order="1"]', {
+            opacity: 1,
+            y: 0,
+            startAt: { y: -20 },
+            stagger: 0.2
         })
+        // 참 스트랩 정보 세트 등장
+        .to('[data-fade-order="2"]', {
+            opacity: 1,
+            x: 0,
+            startAt: { x: -20 },
+            stagger: 0.1
+        }, "-=0.8")
+        // 에어팟, 폰케이스 및 해당 설명 텍스트들이 아래에서 위로 부드럽게 동시 등장
+        .to('[data-fade-order="3"]', {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            startAt: { y: 30, scale: 0.95 },
+            stagger: 0.15
+        }, "-=0.9")
+        // 마지막 주의사항 문구
+        .to('[data-fade-order="4"]', {
+            opacity: 1
+        }, "-=0.6");
     </script>
 </body>
 </html>
